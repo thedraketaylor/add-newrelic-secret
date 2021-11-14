@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Add the newrelic api key to a secrets manager secret
+Parameters:
+  newrelickey:
+    Description: The newrelic api key
+    Type: String
+    Default: <new-relic-key>
+
+Resources:
+  NewRelic:
+    Type: AWS::SecretsManager::Secret
+    Properties: 
+      Description: The new Relic api key
+      Name: NewRelicapikey
+      SecretString: !Ref newrelickey
